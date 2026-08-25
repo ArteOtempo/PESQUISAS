@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesquisa DATATEMPO — Governo de Minas Gerais 2026</title>
+<style>
+:root{
+  --bg:#f4f5f7;
+  --card:#ffffff;
+  --text:#17191c;
+  --muted:#68707a;
+  --line:#e4e7eb;
+  --accent:#b5122f;
+  --accent-dark:#8e0e25;
+  --other:#7d8791;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--text)}
+body{padding:22px}
+.poll-card{
+  width:min(980px,100%);
+  margin:0 auto;
+  background:var(--card);
+  border:1px solid #e1e4e8;
+  box-shadow:0 10px 30px rgba(0,0,0,.07);
+  overflow:hidden;
+}
+.header{
+  padding:28px 34px 24px;
+  border-bottom:1px solid var(--line);
+}
+.brand{
+  display:flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:800;letter-spacing:1.4px;
+  color:var(--accent);text-transform:uppercase;
+}
+.brand-dot{width:9px;height:9px;border-radius:50%;background:var(--accent)}
+h1{font-size:clamp(26px,4vw,42px);line-height:1.02;margin:13px 0 8px;letter-spacing:-1.5px}
+.subtitle{font-size:16px;line-height:1.45;color:#505862;max-width:780px}
+.content{padding:26px 34px 30px}
+.chart-title{
+  font-size:14px;font-weight:800;text-transform:uppercase;
+  letter-spacing:.7px;margin-bottom:20px;
+}
+.row{margin-bottom:16px}
+.label-line{display:flex;justify-content:space-between;gap:20px;align-items:baseline;margin-bottom:7px}
+.name{font-size:15px;font-weight:700}
+.party{font-weight:400;color:var(--muted);font-size:12px;margin-left:5px}
+.value{font-size:16px;font-weight:800;white-space:nowrap}
+.track{height:24px;background:#edf0f2;border-radius:4px;overflow:hidden}
+.bar{
+  height:100%;width:0;border-radius:4px;
+  background:#9da5ad;
+  transition:width 1s cubic-bezier(.22,.61,.36,1);
+}
+.row:first-of-type .bar{background:var(--accent)}
+.row:nth-of-type(2) .bar,.row:nth-of-type(3) .bar{background:#4b5560}
+.separator{height:1px;background:var(--line);margin:24px 0}
+.others .bar{background:#b9c0c6}
+.note-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px
+}
+.note{
+  background:#f7f8f9;border:1px solid var(--line);padding:14px 16px;border-radius:6px;
+}
+.note-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;font-weight:700}
+.note-value{font-size:23px;font-weight:800;margin-top:5px}
+.footer{
+  background:#17191c;color:#d9dde1;padding:20px 34px 22px;
+  font-size:11px;line-height:1.55;
+}
+.footer strong{color:#fff}
+.footer-top{font-weight:700;color:#fff;margin-bottom:6px}
+.source{margin-top:10px;color:#aeb5bc}
+@media(max-width:650px){
+  body{padding:0}
+  .poll-card{border:0;box-shadow:none}
+  .header{padding:23px 20px 20px}
+  .content{padding:22px 20px 25px}
+  .footer{padding:18px 20px 20px}
+  .name{font-size:13px}
+  .party{display:block;margin:3px 0 0}
+  .value{font-size:15px}
+  .track{height:21px}
+  .note-grid{grid-template-columns:1fr}
+  .note-value{font-size:21px}
+}
+</style>
+</head>
+<body>
+<main class="poll-card">
+  <header class="header">
+    <div class="brand"><span class="brand-dot"></span> Pesquisa DATATEMPO</div>
+    <h1>Eleição para governador de Minas Gerais</h1>
+    <div class="subtitle"><strong>1º turno</strong> — Se a eleição para governador de Minas Gerais fosse hoje e os candidatos fossem esses, em quem você votaria?</div>
+  </header>
+
+  <section class="content">
+    <div class="chart-title">Intenção de voto (%)</div>
+    <div id="chart"></div>
+
+    <div class="separator"></div>
+
+    <div class="note-grid">
+      <div class="note"><div class="note-label">Branco / Nulo</div><div class="note-value">12,6%</div></div>
+      <div class="note"><div class="note-label">Indeciso</div><div class="note-value">13,0%</div></div>
+      <div class="note"><div class="note-label">Não respondeu</div><div class="note-value">0,8%</div></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-top">METODOLOGIA</div>
+    Pesquisa DATATEMPO contratada pela Sempre Editora. Dados coletados de <strong>17 a 20 de agosto de 2026</strong>, por meio de <strong>1.000 entrevistas domiciliares</strong>.
+    Margem de erro de <strong>3,1 pontos percentuais</strong> e intervalo de confiança de <strong>95%</strong>.
+    <div class="source">Pesquisa registrada: MG-03794/2026 e BR-08275/2026. Algumas somas podem não totalizar 100% devido aos arredondamentos.</div>
+  </footer>
+</main>
+
+<script>
+const candidates = [
+  ["Cleitinho Azevedo","Republicanos",35.5],
+  ["Patrus Ananias","PT",11.1],
+  ["Alexandre Kalil","PDT",11.0],
+  ["Mateus Simões","PSD",3.9],
+  ["Flávio Roscoe","PL",2.8],
+  ["Gabriel","MDB",2.1],
+  ["Ben Mendes","Missão",1.9],
+  ["Rafael Duda","PSTU",1.9],
+  ["Túlio Lopes","PCB",1.8],
+  ["Indira Xavier","UP",1.0],
+  ["Henrique Áreas","PCO",0.6]
+];
+
+const chart = document.getElementById("chart");
+const max = 35.5;
+
+candidates.forEach((c, i) => {
+  const row = document.createElement("div");
+  row.className = "row";
+  row.innerHTML = `
+    <div class="label-line">
+      <div class="name">${c[0]} <span class="party">(${c[1]})</span></div>
+      <div class="value">${c[2].toFixed(1).replace(".", ",")}%</div>
+    </div>
+    <div class="track"><div class="bar"></div></div>
+  `;
+  chart.appendChild(row);
+
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      row.querySelector(".bar").style.width = ((c[2] / max) * 100) + "%";
+    }, 80 + i * 45);
+  });
+});
+</script>
+</body>
+</html>
