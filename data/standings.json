@@ -1,0 +1,39 @@
+{
+  "season": 2026,
+  "updatedAt": "EXEMPLO — substitua pela data da atualização",
+  "drivers": [
+    {"position":1,"name":"Kimi Antonelli","country":"ITA","team":"Mercedes","wins":0,"points":0,"color":"#00D2BE"},
+    {"position":2,"name":"George Russell","country":"GBR","team":"Mercedes","wins":0,"points":0,"color":"#00D2BE"},
+    {"position":3,"name":"Lewis Hamilton","country":"GBR","team":"Ferrari","wins":0,"points":0,"color":"#E8002D"},
+    {"position":4,"name":"Max Verstappen","country":"NED","team":"Red Bull Racing","wins":0,"points":0,"color":"#3671C6"},
+    {"position":5,"name":"Charles Leclerc","country":"MON","team":"Ferrari","wins":0,"points":0,"color":"#E8002D"},
+    {"position":6,"name":"Lando Norris","country":"GBR","team":"McLaren","wins":0,"points":0,"color":"#FF8000"},
+    {"position":7,"name":"Oscar Piastri","country":"AUS","team":"McLaren","wins":0,"points":0,"color":"#FF8000"}
+  ],
+  "teams": [
+    {"position":1,"team":"Mercedes","drivers":["K. Antonelli","G. Russell"],"wins":0,"points":0,"color":"#00D2BE"},
+    {"position":2,"team":"Ferrari","drivers":["L. Hamilton","C. Leclerc"],"wins":0,"points":0,"color":"#E8002D"},
+    {"position":3,"team":"Red Bull Racing","drivers":["M. Verstappen","I. Hadjar"],"wins":0,"points":0,"color":"#3671C6"},
+    {"position":4,"team":"McLaren","drivers":["L. Norris","O. Piastri"],"wins":0,"points":0,"color":"#FF8000"}
+  ],
+  "races": [
+    {"id":1,"round":1,"grandPrix":"Australian Grand Prix","shortName":"Australian Grand Prix","country":"Austrália","location":"Melbourne","dateLabel":"08 MAR 2026","laps":58,"circuitLength":5.278,"winner":"George Russell","team":"Mercedes","result":"P1 · DEMO","story":"Texto de exemplo: substitua por um resumo do momento decisivo da corrida.","circuitImage":"assets/images/circuito-australia.svg","winnerImage":"assets/images/vencedor-australia.png"},
+    {"id":2,"round":2,"grandPrix":"Chinese Grand Prix","shortName":"Chinese Grand Prix","country":"China","location":"Xangai","dateLabel":"15 MAR 2026","laps":56,"circuitLength":5.451,"winner":"","team":"","result":"","story":""},
+    {"id":3,"round":3,"grandPrix":"Japanese Grand Prix","shortName":"Japanese Grand Prix","country":"Japão","location":"Suzuka","dateLabel":"29 MAR 2026","laps":53,"circuitLength":5.807,"winner":"","team":"","result":"","story":""},
+    {"id":4,"round":4,"grandPrix":"Bahrain Grand Prix","shortName":"Bahrain Grand Prix","country":"Bahrein","location":"Sakhir","dateLabel":"12 ABR 2026","laps":57,"circuitLength":5.412,"winner":"","team":"","result":"","story":""},
+    {"id":5,"round":5,"grandPrix":"Saudi Arabian Grand Prix","shortName":"Saudi Arabian Grand Prix","country":"Arábia Saudita","location":"Jeddah","dateLabel":"19 ABR 2026","laps":50,"circuitLength":6.174,"winner":"","team":"","result":"","story":""},
+    {"id":6,"round":6,"grandPrix":"Miami Grand Prix","shortName":"Miami Grand Prix","country":"Estados Unidos","location":"Miami","dateLabel":"03 MAI 2026","laps":57,"circuitLength":5.412,"winner":"","team":"","result":"","story":""}
+  ],
+  "driverProfile": {
+    "name":"Kimi Antonelli",
+    "number":12,
+    "team":"Mercedes-AMG Petronas",
+    "tagline":"A nova geração em alta velocidade.",
+    "image":"assets/images/kimi-antonelli.png",
+    "facts":[
+      {"title":"Origens","text":"Curiosidade verificada sobre a infância e a formação do piloto."},
+      {"title":"Números","text":"História do número do carro, recordes ou estatísticas relevantes."},
+      {"title":"Fora da pista","text":"Hobby, influência ou detalhe pessoal confirmado em fonte oficial."}
+    ]
+  }
+}

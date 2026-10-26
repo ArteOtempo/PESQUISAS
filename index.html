@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101216">
+  <title>F1 2026 — A temporada em movimento</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="progress-track"><span id="reading-progress"></span></div>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="F1 2026 início"><span class="brand-mark">F1</span><span>2026 <i>SEASON STORY</i></span></a>
+    <nav>
+      <a href="#temporada">Temporada</a>
+      <a href="#classificacao">Classificação</a>
+      <a href="#piloto">Piloto em foco</a>
+    </nav>
+    <span class="live-label"><span></span> EDIÇÃO 2026</span>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-noise"></div>
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> VELOCIDADE. ESTRATÉGIA. HISTÓRIA.</p>
+        <h1>FORMULA<br><span>ONE</span><em>2026</em></h1>
+        <p class="hero-description">Uma temporada. Vinte e dois pilotos. Uma história escrita volta a volta.</p>
+        <a class="scroll-cue" href="#temporada"><span class="scroll-icon">↓</span> ROLE PARA ACOMPANHAR A TEMPORADA</a>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-placeholder image-placeholder" data-image="carro-capa">
+          <span class="placeholder-icon">＋</span>
+          <strong>IMAGEM DO CARRO</strong>
+          <small>Substitua por uma foto horizontal recortada</small>
+          <code>assets/images/carro-capa.png</code>
+        </div>
+        <div class="hero-stamp">THE<br>2026<br>SEASON</div>
+      </div>
+      <div class="hero-footer"><span>01 / 24 ROUNDS</span><span>SCROLL TO EXPLORE <b>↘</b></span></div>
+    </section>
+
+    <section class="section intro-section" id="temporada">
+      <div class="section-kicker">01 — A TEMPORADA</div>
+      <div class="intro-grid">
+        <h2>Cada corrida<br>conta uma <span>história.</span></h2>
+        <p>Do apagar das luzes à bandeirada final, acompanhe os momentos que definem o campeonato. Circuitos, vencedores e detalhes de cada etapa reunidos em uma experiência feita para explorar no seu ritmo.</p>
+      </div>
+      <div class="race-toolbar">
+        <div><span class="tiny-label">ARQUIVO DA TEMPORADA</span><strong id="race-count">24 ETAPAS</strong></div>
+        <label class="filter-label" for="race-filter">FILTRAR <select id="race-filter"><option value="all">Todas as etapas</option><option value="completed">Com resultado</option><option value="upcoming">Próximas etapas</option></select></label>
+      </div>
+      <div id="race-list" class="race-list" aria-live="polite"></div>
+    </section>
+
+    <section class="race-feature section" id="corrida-destaque">
+      <div class="feature-topline"><span>02 — CORRIDA EM DESTAQUE</span><span id="feature-round">ROUND 01</span></div>
+      <div class="feature-grid">
+        <div class="track-panel">
+          <div class="track-label"><span>CIRCUIT MAP</span><span id="feature-country">AUSTRÁLIA</span></div>
+          <div class="track-placeholder image-placeholder" data-image="mapa-circuito">
+            <span class="placeholder-icon">＋</span><strong>MAPA DO CIRCUITO</strong>
+            <small>SVG ou PNG com fundo transparente</small><code>assets/images/circuito-australia.svg</code>
+          </div>
+          <div class="track-meta"><span id="feature-laps">58 VOLTAS</span><span id="feature-length">5.278 KM</span></div>
+        </div>
+        <div class="winner-panel">
+          <p class="eyebrow"><span class="eyebrow-line"></span> BANDEIRADA FINAL</p>
+          <h2 id="feature-race-name">AUSTRALIAN<br>GRAND PRIX</h2>
+          <p class="feature-date" id="feature-date">MELBOURNE · 08 MAR 2026</p>
+          <div class="winner-photo image-placeholder" data-image="foto-vencedor">
+            <span class="placeholder-icon">＋</span><strong>FOTO DO PILOTO</strong><small>Retrato oficial do vencedor</small><code>assets/images/vencedor.png</code>
+          </div>
+          <div class="winner-details"><div><span>VENCEDOR</span><strong id="feature-winner">George Russell</strong></div><div><span>EQUIPE</span><strong id="feature-team">Mercedes</strong></div><div><span>RESULTADO</span><strong id="feature-result">P1 · 25 PTS</strong></div></div>
+          <p class="feature-note" id="feature-note">Adicione aqui o momento decisivo da corrida e o que ele representou para o campeonato.</p>
+        </div>
+      </div>
+      <div class="feature-bottom"><span>HISTÓRIA EM CONSTRUÇÃO</span><span>USE A LISTA ACIMA PARA TROCAR A ETAPA <b>↗</b></span></div>
+    </section>
+
+    <section class="section standings-section" id="classificacao">
+      <div class="section-kicker">03 — O CAMPEONATO</div>
+      <div class="standings-heading"><div><h2>O placar<br>da temporada<span>.</span></h2><p>Uma tabela alimentada por JSON. Atualize o arquivo de dados para refletir a classificação mais recente.</p></div><div class="update-block"><span class="status-dot"></span><span>FONTE LOCAL JSON</span><small>Atualizado em <b id="updated-at">—</b></small></div></div>
+      <div class="standings-tabs" role="tablist"><button class="tab active" data-tab="drivers" role="tab" aria-selected="true">PILOTOS</button><button class="tab" data-tab="teams" role="tab" aria-selected="false">CONSTRUTORES</button></div>
+      <div class="table-wrap"><table><thead id="standings-head"></thead><tbody id="standings-body"></tbody></table></div>
+      <p class="data-note"><span>i</span> Os dados de exemplo são demonstrativos. Substitua <code>data/standings.json</code> por dados verificados e licenciados.</p>
+    </section>
+
+    <section class="driver-section" id="piloto">
+      <div class="driver-sticky">
+        <div class="driver-backdrop"></div>
+        <div class="driver-title"><p class="eyebrow"><span class="eyebrow-line"></span> 04 — PERFIL EM FOCO</p><h2>POR TRÁS<br>DO <span>CAPACETE.</span></h2><p class="driver-hint">Continue rolando para revelar curiosidades.</p></div>
+        <div class="driver-portrait image-placeholder" id="driver-portrait" data-image="retrato-piloto">
+          <span class="portrait-number">12</span><span class="placeholder-icon">＋</span><strong>RETRATO DO PILOTO</strong><small>Imagem vertical com fundo recortado</small><code>assets/images/kimi-antonelli.png</code>
+        </div>
+        <div class="driver-name"><span id="driver-team">MERCEDES-AMG PETRONAS</span><h3 id="driver-name">KIMI<br>ANTONELLI</h3><p id="driver-tagline">A nova geração em alta velocidade.</p></div>
+        <div class="driver-counter"><b id="fact-current">01</b><span> / 03</span></div>
+      </div>
+      <div class="driver-stories" id="driver-stories">
+        <article class="fact-card active" data-fact="0"><span class="fact-index">01 / ORIGENS</span><div class="fact-card-mark">01</div><h3>Uma carreira<br>em aceleração.</h3><p>Use este espaço para contar uma curiosidade sobre a infância, a formação ou os primeiros passos do piloto no automobilismo.</p><span class="fact-instruction">ROLE PARA DESCOBRIR <b>↓</b></span></article>
+        <article class="fact-card" data-fact="1"><span class="fact-index">02 / NÚMEROS</span><div class="fact-card-mark">02</div><h3>Mais do que<br>um número.</h3><p>Conte a história por trás do número do carro, de um recorde ou de um dado que ajude o público a conhecer melhor o piloto.</p><span class="fact-instruction">CONTINUE A EXPLORAR <b>↓</b></span></article>
+        <article class="fact-card" data-fact="2"><span class="fact-index">03 / FORA DA PISTA</span><div class="fact-card-mark">03</div><h3>O lado que<br>poucos veem.</h3><p>Revele um hobby, uma influência ou um detalhe pessoal confirmado em fontes oficiais. O perfil pode ser trocado por qualquer piloto.</p><span class="fact-instruction">FIM DO PERFIL <b>↗</b></span></article>
+      </div>
+    </section>
+
+    <section class="closing section">
+      <p class="eyebrow"><span class="eyebrow-line"></span> A TEMPORADA CONTINUA</p>
+      <h2>ATÉ A<br>PRÓXIMA <span>VOLTA.</span></h2>
+      <p>Uma temporada viva, atualizada corrida após corrida.</p>
+      <a href="#inicio" class="back-top">VOLTAR AO TOPO ↑</a>
+      <footer><span>F1 2026 — SEASON STORY</span><span>PROTÓTIPO EDITORIAL · DADOS JSON</span></footer>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
