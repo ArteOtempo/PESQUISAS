@@ -89,6 +89,59 @@ $$(".tab").forEach(tab => tab.addEventListener("click", () => {
 }));
 
 const factCards = $$(".fact-card");
+
+
+const driverSequence = document.querySelector("#driver-sequence");
+const totalFrames = 6;
+let currentFrame = 0;
+const driverFrames = [];
+
+for (let i = 1; i <= totalFrames; i++) {
+  const img = new Image();
+  img.src = `assets/images/piloto/frame-${String(i).padStart(3, "0")}.png`;
+  driverFrames.push(img);
+}
+
+function updateDriverSequence() {
+  if (!driverSequence) return;
+
+  const section = document.querySelector("#piloto");
+  if (!section) return;
+
+  const rect = section.getBoundingClientRect();
+  const distance = section.offsetHeight - window.innerHeight;
+
+  if (distance <= 0) return;
+
+  const progress = Math.max(0, Math.min(1, -rect.top / distance));
+  const frame = Math.min(
+    totalFrames,
+    Math.floor(progress * totalFrames) + 1
+  );
+
+  if (frame !== currentFrame) {
+    currentFrame = frame;
+
+    const image = driverFrames[frame - 1];
+
+    if (image.complete && image.naturalWidth > 0) {
+      driverSequence.src = image.src;
+    } else {
+      image.onload = () => {
+        if (currentFrame === frame) {
+          driverSequence.src = image.src;
+        }
+      };
+    }
+  }
+}
+
+window.addEventListener("scroll", updateDriverSequence, {
+  passive: true
+});
+
+updateDriverSequence();
+
 if ("IntersectionObserver" in window) {
   const factObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -107,3 +160,4 @@ window.addEventListener("scroll", () => {
   $("#reading-progress").style.width = `${max > 0 ? window.scrollY / max * 100 : 0}%`;
 }, {passive:true});
 loadData();
+
